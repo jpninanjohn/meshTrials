@@ -10,9 +10,9 @@ import (
 
 func handler(w http.ResponseWriter, r *http.Request) {
 
-	_, _ = fmt.Fprintf(w, "Calling Service B")
+	_, _ = fmt.Fprintf(w, "Calling Service B\n")
 
-	// Request to service a envoy
+	// Creatign request to service B
 	req, err := http.NewRequest("GET", "http://service_a_envoy:8788/", nil)
 	if err != nil {
 		fmt.Printf("%s", err)
@@ -39,7 +39,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("%s", err)
 	}
 	_, _ = fmt.Fprintf(w, string(body))
-	_, _ = fmt.Fprintf(w, "Hello from service A")
+	_, _ = fmt.Fprintf(w, "Hello from service A\n")
 }
 
 func main() {
