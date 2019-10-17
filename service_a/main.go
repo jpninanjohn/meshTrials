@@ -12,7 +12,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	_, _ = fmt.Fprintf(w, "Calling Service B\n")
 
-	// Creatign request to service B
+	// Call service B
 	req, err := http.NewRequest("GET", "http://service_a_envoy:8788/", nil)
 	if err != nil {
 		fmt.Printf("%s", err)
