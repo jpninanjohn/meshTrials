@@ -27,6 +27,18 @@ services:
   service_b:
     build: service_b/
 
+  service_c_envoy:
+    image: envoyproxy/envoy-alpine-dev:latest
+    volumes:
+      - ./service_c/envoy-config.yaml:/etc/envoy-config.yaml
+    command: "/usr/local/bin/envoy -c /etc/envoy-config.yaml --service-cluster 'service-c' --service-node 'service-c' --log-format '[METADATA][%Y-%m-%d %T.%e][%t][%l][%n] %v'"
+
+  service_c:
+    build: service_c/
+
+  service_b2:
+    build: service_b2/
+
   jaeger:
     image: jaegertracing/all-in-one
     environment:

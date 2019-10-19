@@ -12,11 +12,6 @@ static_resources:
                   operation_name: egress
                 use_remote_address: true
                 add_user_agent: true
-                access_log:
-                  - name: envoy.file_access_log
-                    config:
-                      path: /dev/stdout
-                      format: "[ACCESS_LOG][%START_TIME%] \"%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%\" %RESPONSE_CODE% %RESPONSE_FLAGS% %BYTES_RECEIVED% %BYTES_SENT% %DURATION% %RESP(X-ENVOY-UPSTREAM-SERVICE-TIME)% \"%REQ(X-FORWARDED-FOR)%\" \"%REQ(USER-AGENT)%\" \"%REQ(X-REQUEST-ID)%\" \"%REQ(:AUTHORITY)%\" \"%UPSTREAM_HOST%\" \"%DOWNSTREAM_REMOTE_ADDRESS_WITHOUT_PORT%\"\n"
                 stat_prefix: "ingress_443"
                 codec_type: "AUTO"
                 generate_request_id: true
